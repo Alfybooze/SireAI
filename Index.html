@@ -238,11 +238,11 @@
                 </span>
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex gap-6 items-center">
-                    <a class="nav-link text-cyan-400 font-['Space_Grotesk'] tracking-tight hover:bg-slate-800/50 transition-colors px-3 py-1 cursor-pointer active:scale-95 duration-200"
+                    <a class="nav-link text-cyan-400 font-['Space_Grotesk'] tracking-tight hover:bg-slate-800/50 transition-colors px-3 py-1 cursor-pointer active:scale-95 duration-300"
                         href="#">About</a>
-                    <a class="nav-link text-slate-400 font-['Space_Grotesk'] tracking-tight hover:bg-slate-800/50 transition-colors px-3 py-1 cursor-pointer active:scale-95 duration-200"
+                    <a class="nav-link text-slate-400 font-['Space_Grotesk'] tracking-tight hover:bg-slate-800/50 transition-colors px-3 py-1 cursor-pointer active:scale-95 duration-300"
                         href="#">Team</a>
-                    <a class="nav-link text-slate-400 font-['Space_Grotesk'] tracking-tight hover:bg-slate-800/50 transition-colors px-3 py-1 cursor-pointer active:scale-95 duration-200"
+                    <a class="nav-link text-slate-400 font-['Space_Grotesk'] tracking-tight hover:bg-slate-800/50 transition-colors px-3 py-1 cursor-pointer active:scale-95 duration-300"
                         href="#">Contact us</a>
                 </div>
             </div>
@@ -261,7 +261,7 @@
                     </a>
                 </div>
                  <!-- Mobile Menu Toggle -->
-                <button id="mobile-menu-toggle" class="md:hidden text-slate-400 hover:text-cyan-400 transition-all duration-200 p-2 rounded-md">
+                <button id="mobile-menu-toggle" class="md:hidden text-slate-400 hover:text-cyan-400 transition-all duration-300 p-2 rounded-md">
                     <span class="material-symbols-outlined text-xl" id="menu-icon">menu</span>
                 </button>
             </div>
@@ -306,10 +306,10 @@
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                     <div class="lg:col-span-7">
                         <div
-                            class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-high border border-outline-variant/30 rounded-full mb-6">
+                            class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-high border border-outline-variant/30 rounded-full mb-6 mt-5 md:mt-0">
                             <span class="flex h-2 w-2 rounded-full bg-primary animate-pulse"></span>
                             <span class="text-xs font-bold tracking-widest text-primary uppercase font-label">Neural
-                                Engine v4.2 Live</span>
+                                Engine v0.1 Live</span>
                         </div>
                         <h1 class="font-headline text-5xl md:text-7xl font-bold tracking-tighter leading-tight mb-6">
                             ELITE <span
@@ -317,13 +317,13 @@
                         </h1>
                         <p class="text-on-surface-variant text-lg md:text-xl max-w-xl mb-10 leading-relaxed font-body">
                             Leverage high-fidelity data streams and proprietary neural networks to gain a definitive
-                            edge in sports markets. Sire sports AI processes 14M+ data points per match in real-time.
+                            edge in sports markets. Sire sports AI processes 14M+ data points per match in real-time giving you odds and prediction that are spot on.
                         </p>
                         <div class="flex flex-col sm:flex-row gap-4">
-                            <button
+                            <a href="https://t.me/Ak_sire_sportyAI_bot" target="_blank" rel="noopener noreferrer"
                                 class="px-8 py-4 bg-primary text-on-primary font-bold rounded-md flex items-center justify-center gap-2 hover:brightness-110 active:scale-95 transition-all shadow-[0_0_20px_rgba(156,255,147,0.3)]">
                                 GET STARTED <span class="material-symbols-outlined">trending_up</span>
-                            </button>
+                            </a>
                             <button onclick="openVideoModal()"
                                 class="px-8 py-4 border border-outline-variant text-secondary font-bold rounded-md flex items-center justify-center gap-2 hover:bg-surface-container-high active:scale-95 transition-all">
                                 VIEW LIVE DEMO <span class="material-symbols-outlined">play_circle</span>
@@ -333,11 +333,11 @@
                                 <div class="relative max-w-4xl w-full mx-4">
                                     <button onclick="closeVideoModal()" class="absolute -top-12 right-0 text-white hover:text-cyan-400 transition-colors">
                                         <span class="material-symbols-outlined text-3xl">close</span>
-                                    </button>
+                                    </button>`
                                     <div class="bg-surface-container-high rounded-lg overflow-hidden border border-outline-variant/30">
                                         <div class="aspect-video bg-surface-container">
                                             <!-- Replace this with your actual video -->
-                                            <video controls class="w-full h-full" poster="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&h=450&fit=crop">
+                                            <video controls class="w-full h-96 sm:h-96 md:h-[500px] lg:h-full" poster="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&h=450&fit=crop">
                                                 <source src="video/WhatsApp Video 2026-04-20 at 9.49.48 PM.mp4" type="video/mp4">
                                                 Your browser does not support the video tag.
                                             </video>
@@ -550,7 +550,7 @@
                             sports. Scale your operations with our enterprise-grade API.
                         </p>
                         <div class="flex items-center gap-6">
-                            <button
+                            <button onclick="window.open('https://t.me/Ak_sire_sportyAI_bot', '_blank')" rel="noopener noreferrer"
                                 class="px-10 py-4 bg-primary text-on-primary font-bold rounded-md hover:brightness-110 transition-all">
                                 START FREE TRIAL
                             </button>
@@ -728,7 +728,7 @@
                 // Remove click animation after animation completes
                 setTimeout(() => {
                     this.classList.remove('clicked');
-                }, 200);
+                }, 300);
                 
                 // Add ripple effect
                 const ripple = document.createElement('span');
