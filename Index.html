@@ -107,49 +107,186 @@
         .text-glow-secondary {
             text-shadow: 0 0 15px rgba(0, 227, 253, 0.4);
         }
+         /* Enhanced navbar animations */
+        header {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+ 
+        .nav-link {
+            position: relative;
+            overflow: hidden;
+        }
+ 
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #00e3fd, #9cff93);
+            transition: width 0.3s ease;
+        }
+ 
+        .nav-link:hover::before {
+            width: 100%;
+        }
+ 
+        /* Mobile menu slide animation */
+        #mobile-menu {
+            transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+ 
+        /* Icon hover animations */
+        .nav-icon {
+            transition: all 0.2s ease;
+        }
+ 
+        .nav-icon:hover {
+            transform: translateY(-2px);
+        }
+ 
+        /* Search bar focus effect */
+        .search-bar {
+            transition: all 0.3s ease;
+        }
+ 
+        .search-bar:focus-within {
+            border-color: #00e3fd;
+            box-shadow: 0 0 0 2px rgba(0, 227, 253, 0.2);
+        }
+ 
+        /* Logo pulse animation */
+        @keyframes logo-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+ 
+        .logo-animate:hover {
+            animation: logo-pulse 2s infinite;
+        }
+         /* Sign In Link Enhanced Animations */
+        .sign-in-link {
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+ 
+        .sign-in-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #00e3fd, #9cff93);
+            transition: width 0.3s ease;
+        }
+ 
+        .sign-in-link:hover::before {
+            width: 100%;
+        }
+ 
+        .sign-in-link:hover {
+            transform: translateY(-1px);
+            text-shadow: 0 0 20px rgba(0, 227, 253, 0.6);
+        }
+ 
+        .sign-in-link:active {
+            transform: translateY(0);
+            transition: transform 0.1s ease;
+        }
+ 
+        .sign-in-link span {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+ 
+        .sign-in-link:hover span {
+            transform: translateX(3px);
+            text-shadow: 0 0 15px rgba(156, 255, 147, 0.5);
+        }
+ 
+        /* Mobile sign-in link specific styling */
+        .sign-in-link.mobile {
+            font-size: 1.1rem;
+            padding: 0.75rem 1rem;
+        }
+ 
+        /* Click animation */
+        @keyframes click-pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(0.95); }
+            100% { transform: scale(1); }
+        }
+ 
+        .sign-in-link.clicked {
+            animation: click-pulse 0.2s ease;
+        }
     </style>
 </head>
 
 <body class="antialiased overflow-x-hidden">
     <!-- TopAppBar Component -->
-    <header class="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-xl shadow-[0_0_20px_rgba(0,229,255,0.05)]">
-        <nav class="flex items-center justify-between px-6 h-16 w-full max-w-7xl mx-auto">
+    <header class="fixed top-0 w-full z-50 bg-slate-950/90 backdrop-blur-xl shadow-[0_0_30px_rgba(0,229,255,0.1)] border-b border-slate-800/50">
+        <nav class="flex items-center justify-between px-6 h-16 w-full max-w-7xl mx-auto relative">
+            <!-- Logo with enhanced animation -->
             <div class="flex items-center gap-8">
-                <span class="text-xl font-bold tracking-tighter text-cyan-400 font-['Space_Grotesk']">Sire Sports
-                    AI</span>
+                 <span class="text-xl font-bold tracking-tighter text-cyan-400 font-['Space_Grotesk'] logo-animate">
+                    Sire Sports AI
+                </span>
+                <!-- Desktop Navigation -->
                 <div class="hidden md:flex gap-6 items-center">
-                    <a class="text-cyan-400 font-['Space_Grotesk'] tracking-tight hover:bg-slate-800/50 transition-colors px-3 py-1 cursor-pointer active:scale-95 duration-200"
+                    <a class="nav-link text-cyan-400 font-['Space_Grotesk'] tracking-tight hover:bg-slate-800/50 transition-colors px-3 py-1 cursor-pointer active:scale-95 duration-200"
                         href="#">About</a>
-                    <a class="text-slate-400 font-['Space_Grotesk'] tracking-tight hover:bg-slate-800/50 transition-colors px-3 py-1 cursor-pointer active:scale-95 duration-200"
+                    <a class="nav-link text-slate-400 font-['Space_Grotesk'] tracking-tight hover:bg-slate-800/50 transition-colors px-3 py-1 cursor-pointer active:scale-95 duration-200"
                         href="#">Team</a>
-                    <a class="text-slate-400 font-['Space_Grotesk'] tracking-tight hover:bg-slate-800/50 transition-colors px-3 py-1 cursor-pointer active:scale-95 duration-200"
+                    <a class="nav-link text-slate-400 font-['Space_Grotesk'] tracking-tight hover:bg-slate-800/50 transition-colors px-3 py-1 cursor-pointer active:scale-95 duration-200"
                         href="#">Contact us</a>
                 </div>
             </div>
+            <!-- Desktop right section -->
             <div class="flex items-center gap-4">
-                <div
-                    class="hidden md:flex items-center bg-slate-900/50 px-3 py-1.5 rounded border border-outline-variant/20">
+                 <!-- Search Bar with enhanced styling -->
+                <div class="search-bar hidden md:flex items-center bg-slate-900/50 px-3 py-1.5 rounded border border-outline-variant/20">
+                    <span class="material-symbols-outlined text-slate-400 text-sm mr-2 group-hover:text-cyan-400 transition-colors">search</span>
+                    <span class="text-slate-500 text-xs font-['Inter'] group-hover:text-slate-300 transition-colors">Search Markets...</span>
+                </div>
+                <!-- Sign In Link -->
+                <div class="hidden md:flex items-center">
+                    <a href="#" class="sign-in-link text-cyan-400 font-['Space_Grotesk'] font-medium tracking-tight hover:text-glow-primary transition-all duration-300 px-3 py-2 rounded-md group">
+                        sign in
+                        <span class="inline-block transition-all duration-300 group-hover:translate-x-1 group-hover:text-glow-secondary">→</span>
+                    </a>
+                </div>
+                 <!-- Mobile Menu Toggle -->
+                <button id="mobile-menu-toggle" class="md:hidden text-slate-400 hover:text-cyan-400 transition-all duration-200 p-2 rounded-md">
+                    <span class="material-symbols-outlined text-xl" id="menu-icon">menu</span>
+                </button>
+            </div>
+        </nav>
+         <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="md:hidden bg-slate-950/95 backdrop-blur-lg border-t border-slate-800/50 transform origin-top transition-all duration-300 ease-out max-h-0 overflow-hidden">
+             <div class="px-6 py-4 space-y-2">
+                <!-- Search Bar in Mobile Menu -->
+                <div class="flex items-center bg-slate-900/50 px-3 py-2 rounded-lg border border-outline-variant/30 mb-3">
                     <span class="material-symbols-outlined text-slate-400 text-sm mr-2">search</span>
                     <span class="text-slate-500 text-xs font-['Inter']">Search Markets...</span>
                 </div>
-                <div class="flex items-center gap-3">
-                    <span
-                        class="material-symbols-outlined text-slate-400 hover:bg-slate-800/50 transition-colors p-2 cursor-pointer active:scale-95 duration-200"
-                        data-icon="notifications">notifications</span>
-                    <span
-                        class="material-symbols-outlined text-slate-400 hover:bg-slate-800/50 transition-colors p-2 cursor-pointer active:scale-95 duration-200"
-                        data-icon="history">history</span>
-                    <div class="relative group">
-                        <span
-                            class="material-symbols-outlined text-cyan-400 hover:bg-slate-800/50 transition-colors p-2 cursor-pointer active:scale-95 duration-200"
-                            data-icon="account_circle">account_circle</span>
-                        <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-2 py-1 bg-surface-container-high text-on-surface text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
-                            sign in
-                        </div>
-                    </div>
+                <a href="#" class="block text-cyan-400 font-['Space_Grotesk'] px-3 py-2 hover:bg-slate-800/50 rounded-md transition-all duration-200">About</a>
+                <a href="#" class="block text-slate-400 font-['Space_Grotesk'] px-3 py-2 hover:bg-slate-800/50 hover:text-secondary rounded-md transition-all duration-200">Team</a>
+                <a href="#" class="block text-slate-400 font-['Space_Grotesk'] px-3 py-2 hover:bg-slate-800/50 hover:text-secondary rounded-md transition-all duration-200">Contact us</a>
+                
+                <!-- Mobile Sign In Link with Animation -->
+                <div class="pt-4 border-t border-slate-800/30 mt-3">
+                    <a href="#" class="sign-in-link text-cyan-400 font-['Space_Grotesk'] font-medium tracking-tight hover:text-glow-primary transition-all duration-300 px-3 py-2 rounded-md group inline-flex items-center">
+                        sign in
+                        <span class="inline-block transition-all duration-300 group-hover:translate-x-2 group-hover:text-glow-secondary ml-1">→</span>
+                    </a>
                 </div>
             </div>
-        </nav>
+        </div>
     </header>
     <main class="pt-16">
         <!-- Hero Section -->
@@ -187,10 +324,31 @@
                                 class="px-8 py-4 bg-primary text-on-primary font-bold rounded-md flex items-center justify-center gap-2 hover:brightness-110 active:scale-95 transition-all shadow-[0_0_20px_rgba(156,255,147,0.3)]">
                                 GET STARTED <span class="material-symbols-outlined">trending_up</span>
                             </button>
-                            <button
+                            <button onclick="openVideoModal()"
                                 class="px-8 py-4 border border-outline-variant text-secondary font-bold rounded-md flex items-center justify-center gap-2 hover:bg-surface-container-high active:scale-95 transition-all">
                                 VIEW LIVE DEMO <span class="material-symbols-outlined">play_circle</span>
                             </button>
+                            <!-- Video Modal -->
+                            <div id="videoModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden items-center justify-center">
+                                <div class="relative max-w-4xl w-full mx-4">
+                                    <button onclick="closeVideoModal()" class="absolute -top-12 right-0 text-white hover:text-cyan-400 transition-colors">
+                                        <span class="material-symbols-outlined text-3xl">close</span>
+                                    </button>
+                                    <div class="bg-surface-container-high rounded-lg overflow-hidden border border-outline-variant/30">
+                                        <div class="aspect-video bg-surface-container">
+                                            <!-- Replace this with your actual video -->
+                                            <video controls class="w-full h-full" poster="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&h=450&fit=crop">
+                                                <source src="video/WhatsApp Video 2026-04-20 at 9.49.48 PM.mp4" type="video/mp4">
+                                                Your browser does not support the video tag.
+                                            </video>
+                                        </div>
+                                        <div class="p-4 bg-surface-container-highest">
+                                            <h3 class="text-white font-headline font-bold mb-2">Sire Sports AI Live Demo</h3>
+                                            <p class="text-slate-400 text-sm">Watch our AI predict sports outcomes in real-time with 85%+ accuracy</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="lg:col-span-5 relative">
@@ -206,14 +364,14 @@
                                     </div>
                                     <div class="text-right">
                                         <span
-                                            class="text-4xl font-headline font-bold text-white tracking-tighter">94.8<span
+                                            class="text-4xl font-headline font-bold text-white tracking-tighter">85.2<span
                                                 class="text-primary text-lg">%</span></span>
                                     </div>
                                 </div>
                                 <div class="space-y-4">
                                     <div class="h-1.5 w-full bg-surface-variant rounded-full overflow-hidden">
                                         <div
-                                            class="h-full w-[94.8%] bg-gradient-to-r from-secondary to-primary shadow-[0_0_10px_rgba(156,255,147,0.5)]">
+                                            class="h-full w-[85.2%] bg-gradient-to-r from-secondary to-primary shadow-[0_0_10px_rgba(156,255,147,0.5)]">
                                         </div>
                                     </div>
                                     <div class="grid grid-cols-3 gap-2">
@@ -265,7 +423,7 @@
                         class="bg-surface-container-low p-8 rounded-xl border border-outline-variant/10 flex flex-col justify-center">
                         <span class="text-sm font-bold tracking-widest text-secondary uppercase mb-2">Accuracy
                             Rate</span>
-                        <h4 class="text-5xl font-headline font-bold text-white mb-2">94%</h4>
+                        <h4 class="text-5xl font-headline font-bold text-white mb-2">85.2%</h4>
                         <p class="text-on-surface-variant text-sm">Verified neural net output across 50k+ events</p>
                     </div>
                     <div
@@ -315,8 +473,8 @@
                             </div>
                             <h3 class="font-headline text-xl font-bold mb-4">Code Generator</h3>
                             <p class="text-on-surface-variant text-sm leading-relaxed mb-8 flex-grow">
-                                Instantly convert prediction models into deployable Python or TypeScript code.
-                                Seamlessly integrate Sire Sports AI signals into your custom bots and trading platforms.
+                                Instantly ask for betting codes, preferred odds and get game odds that are to good to be true, allow our bot handle the staking you just put the money.
+                                Seamlessly integrate Sire Sports AI signals into your custom betting platforms, we cover most major betting platforms and are continously working to integrate more.
                             </p>
                             <div
                                 class="flex items-center gap-2 text-secondary text-sm font-bold cursor-pointer group-hover:gap-4 transition-all">
@@ -338,8 +496,8 @@
                             </div>
                             <h3 class="font-headline text-xl font-bold mb-4">Portfolio Optimizer</h3>
                             <p class="text-on-surface-variant text-sm leading-relaxed mb-8 flex-grow">
-                                Maximize your bankroll efficiency using Kelly Criterion variants and modern portfolio
-                                theory. Our optimizer adapts to your risk tolerance in real-time.
+                                Maximize your bankroll efficiency and let the bot generate the best odds for you
+                                . Our optimizer adapts to your risk tolerance in real-time just ask and it shall be given.
                             </p>
                             <div
                                 class="flex items-center gap-2 text-primary text-sm font-bold cursor-pointer group-hover:gap-4 transition-all">
@@ -363,8 +521,7 @@
                             </div>
                             <h3 class="font-headline text-xl font-bold mb-4">Live Analysis</h3>
                             <p class="text-on-surface-variant text-sm leading-relaxed mb-8 flex-grow">
-                                Experience zero-latency telemetry for active matches. Watch probabilities shift
-                                frame-by-frame as player fatigue and momentum are factored into the engine.
+                                Experience zero-latency telemetry for active matches. Watch probabilities shift and see as the bot adapt based on your queries.
                             </p>
                             <div
                                 class="flex items-center gap-2 text-tertiary text-sm font-bold cursor-pointer group-hover:gap-4 transition-all">
@@ -459,6 +616,157 @@
             </div>
         </div>
     </footer>
+    <script>
+        function openVideoModal() {
+            const modal = document.getElementById('videoModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+            
+            // Pause video when closing
+            const video = modal.querySelector('video');
+            if (video) {
+                video.pause();
+            }
+        }
+        
+        // Close modal when clicking outside the video
+        document.getElementById('videoModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeVideoModal();
+            }
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeVideoModal();
+            }
+        });
+        // Mobile Menu Functionality
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        let isMenuOpen = false;
+ 
+        function toggleMobileMenu() {
+            isMenuOpen = !isMenuOpen;
+            
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('max-h-0');
+                mobileMenu.classList.add('max-h-96');
+                menuIcon.textContent = 'close';
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.add('max-h-0');
+                mobileMenu.classList.remove('max-h-96');
+                menuIcon.textContent = 'menu';
+                document.body.style.overflow = 'auto';
+            }
+        }
+ 
+        mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+ 
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (isMenuOpen && !mobileMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                toggleMobileMenu();
+            }
+        });
+ 
+        // Close mobile menu on window resize above md breakpoint
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 768 && isMenuOpen) {
+                toggleMobileMenu();
+            }
+        });
+ 
+        // Enhanced navbar scroll effect
+        let lastScrollY = window.scrollY;
+        const navbar = document.querySelector('header');
+ 
+        window.addEventListener('scroll', function() {
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY > 100) {
+                navbar.classList.add('bg-slate-950/95');
+                navbar.classList.remove('bg-slate-950/90');
+                navbar.style.transform = currentScrollY > lastScrollY ? 'translateY(-100%)' : 'translateY(0)';
+            } else {
+                navbar.classList.remove('bg-slate-950/95');
+                navbar.classList.add('bg-slate-950/90');
+                navbar.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollY = currentScrollY;
+        });
+ 
+        // Add smooth scroll behavior to all nav links
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#') {
+                    e.preventDefault();
+                }
+            });
+        });
+
+        // Enhanced Sign In Link Animations
+        document.querySelectorAll('.sign-in-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Add click animation class
+                this.classList.add('clicked');
+                
+                // Remove click animation after animation completes
+                setTimeout(() => {
+                    this.classList.remove('clicked');
+                }, 200);
+                
+                // Add ripple effect
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(0, 227, 253, 0.3)';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 0.6s linear';
+                ripple.style.left = '50%';
+                ripple.style.top = '50%';
+                ripple.style.width = '20px';
+                ripple.style.height = '20px';
+                ripple.style.marginLeft = '-10px';
+                ripple.style.marginTop = '-10px';
+                
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+ 
+        // Add ripple animation keyframes
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
     <!-- SideNavBar - Suppressed for Landing Page focus as per Shell Visibility Rule -->
 </body>
 
