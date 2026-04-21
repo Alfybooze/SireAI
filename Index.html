@@ -16,6 +16,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -224,6 +226,67 @@
         .sign-in-link.clicked {
             animation: click-pulse 0.2s ease;
         }
+         /* AOS Custom Slide Animations */
+        .aos-slide-up {
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .aos-slide-left {
+            transform: translateX(-50px);
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .aos-slide-right {
+            transform: translateX(50px);
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .aos-fade-up {
+            transform: translateY(30px);
+            opacity: 0;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .aos-scale {
+            transform: scale(0.9);
+            opacity: 0;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* AOS animation states */
+        [data-aos="slide-up"].aos-animate,
+        .aos-slide-up.aos-animate {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        [data-aos="slide-left"].aos-animate,
+        .aos-slide-left.aos-animate {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        
+        [data-aos="slide-right"].aos-animate,
+        .aos-slide-right.aos-animate {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        
+        [data-aos="fade-up"].aos-animate,
+        .aos-fade-up.aos-animate {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        [data-aos="scale"].aos-animate,
+        .aos-scale.aos-animate {
+            transform: scale(1);
+            opacity: 1;
+        }
     </style>
 </head>
 
@@ -311,15 +374,15 @@
                             <span class="text-xs font-bold tracking-widest text-primary uppercase font-label">Neural
                                 Engine v0.1 Live</span>
                         </div>
-                        <h1 class="font-headline text-5xl md:text-7xl font-bold tracking-tighter leading-tight mb-6">
+                        <h1 data-aos="fade-in" data-aos-delay="200" class="font-headline text-5xl md:text-7xl font-bold tracking-tighter leading-tight mb-6">
                             ELITE <span
                                 class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">PREDICTIVE</span><br />INTELLIGENCE
                         </h1>
-                        <p class="text-on-surface-variant text-lg md:text-xl max-w-xl mb-10 leading-relaxed font-body">
+                        <p data-aos="fade-in" data-aos-delay="200" class="text-on-surface-variant text-lg md:text-xl max-w-xl mb-10 leading-relaxed font-body">
                             Leverage high-fidelity data streams and proprietary neural networks to gain a definitive
                             edge in sports markets. Sire sports AI processes 14M+ data points per match in real-time giving you odds and prediction that are spot on.
                         </p>
-                        <div class="flex flex-col sm:flex-row gap-4">
+                        <div data-aos="fade-up" class="flex flex-col sm:flex-row gap-4">
                             <a href="https://t.me/Ak_sire_sportyAI_bot" target="_blank" rel="noopener noreferrer"
                                 class="px-8 py-4 bg-primary text-on-primary font-bold rounded-md flex items-center justify-center gap-2 hover:brightness-110 active:scale-95 transition-all shadow-[0_0_20px_rgba(156,255,147,0.3)]">
                                 GET STARTED <span class="material-symbols-outlined">trending_up</span>
@@ -353,7 +416,7 @@
                     </div>
                     <div class="lg:col-span-5 relative">
                         <!-- Hero Data Visualization -->
-                        <div
+                        <div data-aos="slide-up" data-aos-delay=""200
                             class="relative bg-surface-container-low p-1 rounded-xl border border-outline-variant/20 shadow-2xl overflow-hidden backdrop-blur-md">
                             <div class="bg-surface-container-highest p-6 rounded-lg border border-outline-variant/10">
                                 <div class="flex justify-between items-center mb-8">
@@ -416,8 +479,8 @@
             </div>
         </section>
         <!-- Stats Section (Bento Inspired) -->
-        <section class="py-24 bg-surface">
-            <div class="container mx-auto px-6">
+        <section  class="py-24 bg-surface">
+            <div data-aos="fade-up" class="container mx-auto px-6">
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
                     <div
                         class="bg-surface-container-low p-8 rounded-xl border border-outline-variant/10 flex flex-col justify-center">
@@ -459,7 +522,7 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Feature 1: Code Generator -->
-                    <div
+                    <div data-aos="slide-up" data-aos-delay="200"
                         class="group bg-surface-container-low p-1 rounded-xl transition-all hover:bg-gradient-to-br hover:from-secondary/20 hover:to-transparent">
                         <div
                             class="bg-surface-container p-8 rounded-lg h-full border border-outline-variant/10 flex flex-col">
@@ -483,7 +546,7 @@
                         </div>
                     </div>
                     <!-- Feature 2: Optimizer -->
-                    <div
+                    <div data-aos="slide-up" data-aos-delay="300"
                         class="group bg-surface-container-low p-1 rounded-xl transition-all hover:bg-gradient-to-br hover:from-primary/20 hover:to-transparent">
                         <div
                             class="bg-surface-container p-8 rounded-lg h-full border border-outline-variant/10 flex flex-col">
@@ -506,7 +569,7 @@
                         </div>
                     </div>
                     <!-- Feature 3: Live Analysis -->
-                    <div
+                    <div data-aos="slide-up" data-aos-delay="400"
                         class="group bg-surface-container-low p-1 rounded-xl transition-all hover:bg-gradient-to-br hover:from-tertiary/20 hover:to-transparent">
                         <div
                             class="bg-surface-container p-8 rounded-lg h-full border border-outline-variant/10 flex flex-col">
@@ -534,7 +597,7 @@
         </section>
         <!-- CTA Section -->
         <section class="py-24">
-            <div class="container mx-auto px-6">
+            <div data-aos="fade-down" data-aos-delay="200" class="container mx-auto px-6">
                 <div
                     class="bg-gradient-to-r from-surface-container-high to-background rounded-2xl border border-outline-variant/30 p-12 overflow-hidden relative">
                     <div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
@@ -566,7 +629,7 @@
     <footer class="bg-slate-950 border-t border-slate-900 py-16">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                <div class="col-span-1 md:col-span-1 border-l-2 border-cyan-400/30 pl-6">
+                <div data-aos="fade-up" data-aos-delay="200" class="col-span-1 md:col-span-1 border-l-2 border-cyan-400/30 pl-6">
                     <span
                         class="text-2xl font-bold tracking-tighter text-cyan-400 font-['Space_Grotesk'] block mb-6">Sire
                         Sports AI</span>
@@ -575,7 +638,7 @@
                         groups.
                     </p>
                 </div>
-                <div class="border-l-2 border-cyan-400/30 pl-6">
+                <div data-aos="fade-down" data-aos-delay="300" class="border-l-2 border-cyan-400/30 pl-6">
                     <h5 class="text-white font-headline font-bold mb-6 text-sm uppercase tracking-widest">Platform</h5>
                     <ul class="space-y-4 text-sm text-slate-400">
                         <li class="hover:text-cyan-400 cursor-pointer transition-colors">Live Scoreboard</li>
@@ -584,7 +647,7 @@
                         <li class="hover:text-cyan-400 cursor-pointer transition-colors">API Docs</li>
                     </ul>
                 </div>
-                <div class="border-l-2 border-cyan-400/30 pl-6">
+                <div data-aos="fade-up" data-aos-delay="400" class="border-l-2 border-cyan-400/30 pl-6">
                     <h5 class="text-white font-headline font-bold mb-6 text-sm uppercase tracking-widest">Company</h5>
                     <ul class="space-y-4 text-sm text-slate-400">
                         <li class="hover:text-cyan-400 cursor-pointer transition-colors">About Alpha</li>
@@ -593,7 +656,7 @@
                         <li class="hover:text-cyan-400 cursor-pointer transition-colors">Contact</li>
                     </ul>
                 </div>
-                <div class="border-l-2 border-cyan-400/30 pl-6">
+                <div data-aos="fade-down" data-aos-delay="500" class="border-l-2 border-cyan-400/30 pl-6">
                     <h5 class="text-white font-headline font-bold mb-6 text-sm uppercase tracking-widest">Legal</h5>
                     <ul class="space-y-4 text-sm text-slate-400">
                         <li class="hover:text-cyan-400 cursor-pointer transition-colors">Terms of Service</li>
@@ -617,6 +680,48 @@
         </div>
     </footer>
     <script>
+        // Initialize AOS with custom settings
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            mirror: false,
+            offset: 100,
+            delay: 100,
+            disable: false,
+            startEvent: 'DOMContentLoaded',
+            animatedClassName: 'aos-animate',
+            initClassName: 'aos-init',
+            useClassNames: true,
+            disableMutationObserver: false,
+            debounceDelay: 50,
+            throttleDelay: 99,
+        });
+        // Custom AOS animations for slide effects
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 100,
+            delay: 100,
+        });
+        // Add intersection observer for custom animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('aos-animate');
+                }
+            });
+        }, observerOptions);
+        // Observe elements with custom animation classes
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('[data-aos]');
+            animatedElements.forEach(el => observer.observe(el));
+        });
         function openVideoModal() {
             const modal = document.getElementById('videoModal');
             modal.classList.remove('hidden');
