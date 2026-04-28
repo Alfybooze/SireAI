@@ -1,0 +1,57 @@
+# Application Configuration
+spring:
+  application:
+    name: SireAI
+  
+  # Database Configuration
+  datasource:
+    url: jdbc:postgresql://db.adgwhsvgcoickxipvgpf.supabase.co/postgres?sslmode=require
+    username: postgres
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    
+  # JPA Configuration
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+# Server Configuration
+server:
+  port: ${PORT:8080}
+  servlet:
+    context-path: /api
+
+# Logging Configuration
+logging:
+  level:
+    com.example.SireAI: DEBUG
+    org.springframework.security: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+# Application-specific Configuration
+app:
+  jwt:
+    secret: ${JWT_SECRET_KEY}
+    expiration: ${JWT_EXPIRATION:86400000} # 24 hours in milliseconds
+  
+  # File Upload Configuration
+  upload:
+    max-file-size: 10MB
+    max-request-size: 50MB
+
+# SpringDoc OpenAPI Configuration
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
