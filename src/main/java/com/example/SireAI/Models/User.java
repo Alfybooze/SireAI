@@ -21,8 +21,11 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
+    @Column(name = "user_id", unique = true, nullable = false)
     private Long userId;
+
+    @Column(name = "telegram_user_id", unique = true, nullable = true)
+    private String telegramUserId;
 
     @Column(name = "username", unique = true, nullable = false)
     private String username;
@@ -116,8 +119,18 @@ public class User {
     @Column(name = "phone_number", unique = true)
     private String phoneNumber;
 
-    @Column(name = "email", unique = true)
+    @Column(name = "email", unique = true, nullable = false)
     private String email;
+
+    @Column(name = "email_verified")
+    @Builder.Default
+    private Boolean emailVerified = false;
+ 
+    @Column(name = "email_verification_token")
+    private String emailVerificationToken;
+ 
+    @Column(name = "email_token_expires_at")
+    private LocalDateTime emailTokenExpiresAt;
 
     @Column(name = "is_phone_verified")
     @Builder.Default

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Velocity AI - Access</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&amp;family=Manrope:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;700;900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#9cff93",
+                        "on-error-container": "#ffd2c8",
+                        "tertiary-dim": "#00dbec",
+                        "tertiary-fixed-dim": "#00dbec",
+                        "primary-fixed": "#00fc40",
+                        "on-surface-variant": "#a9abb2",
+                        "surface": "#0b0e13",
+                        "surface-container-high": "#1c2026",
+                        "on-primary-fixed": "#00440a",
+                        "surface-tint": "#9cff93",
+                        "tertiary": "#8af2ff",
+                        "primary-fixed-dim": "#00ec3b",
+                        "error-dim": "#d53d18",
+                        "secondary": "#00e3fd",
+                        "tertiary-container": "#0eeafd",
+                        "on-secondary-fixed": "#003a42",
+                        "on-secondary-container": "#e8fbff",
+                        "outline-variant": "#45484e",
+                        "on-primary-container": "#005a10",
+                        "secondary-dim": "#00d4ec",
+                        "surface-bright": "#282c34",
+                        "outline": "#73757c",
+                        "surface-container-lowest": "#000000",
+                        "error-container": "#b92902",
+                        "on-error": "#450900",
+                        "secondary-fixed": "#26e6ff",
+                        "on-secondary": "#004d57",
+                        "on-primary-fixed-variant": "#006513",
+                        "background": "#0b0e13",
+                        "inverse-on-surface": "#52555b",
+                        "error": "#ff7351",
+                        "surface-container-low": "#101419",
+                        "surface-dim": "#0b0e13",
+                        "on-tertiary-fixed": "#003d42",
+                        "surface-variant": "#22262d",
+                        "on-secondary-fixed-variant": "#005964",
+                        "tertiary-fixed": "#0eeafd",
+                        "secondary-fixed-dim": "#00d7f0",
+                        "surface-container-highest": "#22262d",
+                        "inverse-surface": "#f9f9ff",
+                        "secondary-container": "#006875",
+                        "inverse-primary": "#006f16",
+                        "on-tertiary-container": "#005159",
+                        "primary-dim": "#00ec3b",
+                        "on-background": "#f5f6fe",
+                        "on-tertiary": "#005b63",
+                        "on-surface": "#f5f6fe",
+                        "on-tertiary-fixed-variant": "#005c64",
+                        "primary-container": "#00fc40",
+                        "surface-container": "#161a20",
+                        "on-primary": "#006413"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk", "sans-serif"],
+                        "body": ["Manrope", "sans-serif"],
+                        "label": ["Lexend", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0e13; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #22262d; 
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #45484e; 
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body h-screen w-full flex overflow-hidden antialiased selection:bg-primary selection:text-on-primary">
+<!-- Left Pane: Brand & Kinetic Visual (Desktop Only) -->
+<div class="hidden lg:flex w-[45%] bg-surface-container-low relative flex-col justify-between p-12 overflow-hidden border-r border-outline-variant/10">
+<!-- Abstract CSS Data Grid Background -->
+<div class="absolute inset-0 z-0 opacity-20 pointer-events-none" style="background-image: linear-gradient(to right, #45484e 1px, transparent 1px), linear-gradient(to bottom, #45484e 1px, transparent 1px); background-size: 3rem 3rem;"></div>
+<!-- Ambient Glow -->
+<div class="absolute top-1/4 -left-1/4 w-[150%] h-[50%] bg-secondary/10 blur-[120px] rounded-full z-0 pointer-events-none"></div>
+<!-- Brand Identity -->
+<div class="relative z-10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<h1 class="font-headline font-black text-2xl tracking-tighter text-primary uppercase">Velocity AI</h1>
+</div>
+</div>
+<!-- Hero Proposition -->
+<div class="relative z-10 max-w-md pb-12">
+<h2 class="font-headline text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-6 text-on-surface">
+                The Pulse<br/>
+<span class="text-on-surface-variant">of Precision.</span>
+</h2>
+<p class="font-body text-lg text-on-surface-variant leading-relaxed">
+                Connect to the kinetic engine. Real-time predictive analytics and high-stakes intelligence at your command.
+            </p>
+<!-- Simulated streaming data visual -->
+<div class="mt-12 flex gap-4 opacity-60">
+<div class="flex flex-col gap-1">
+<span class="font-label text-[10px] text-secondary tracking-widest uppercase">Stream State</span>
+<div class="h-1 w-12 bg-secondary rounded-full"></div>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label text-[10px] text-primary tracking-widest uppercase">Node Sync</span>
+<div class="h-1 w-24 bg-primary rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Pane: Authentication Action -->
+<div class="w-full lg:w-[55%] flex items-center justify-center p-6 sm:p-12 relative overflow-y-auto">
+<!-- Ambient Glow for Mobile -->
+<div class="absolute top-0 right-0 w-[80%] h-[40%] bg-primary/5 blur-[100px] rounded-full z-0 lg:hidden pointer-events-none"></div>
+<div class="w-full max-w-[420px] relative z-10">
+<!-- Mobile Brand Header (Hidden on Desktop) -->
+<div class="flex items-center gap-2 mb-12 lg:hidden justify-center">
+<span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<h1 class="font-headline font-black text-xl tracking-tighter text-primary uppercase">Velocity AI</h1>
+</div>
+<div class="mb-8">
+<h2 class="font-headline text-3xl font-bold tracking-tight mb-2">Access Grid</h2>
+<p class="font-body text-sm text-on-surface-variant">Initialize your session to access live arena data.</p>
+</div>
+<!-- Login / Signup Toggle -->
+<div class="flex bg-surface-container-high p-1 rounded-full w-full mb-8 relative">
+<!-- Active Indicator (Simulated with absolute positioning for visual, static in HTML for now) -->
+<!-- <div class="absolute inset-y-1 left-1 w-[calc(50%-4px)] bg-surface-container-lowest rounded-full shadow-md transition-transform"></div> -->
+<button class="flex-1 py-2.5 text-center text-xs font-label uppercase tracking-widest bg-surface-container-lowest text-primary rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.3)] relative z-10">
+                    Log In
+                </button>
+<button class="flex-1 py-2.5 text-center text-xs font-label uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors relative z-10">
+                    Sign Up
+                </button>
+</div>
+<!-- Social Auth Options -->
+<div class="grid grid-cols-2 gap-4 mb-8">
+<button class="flex items-center justify-center gap-3 py-3 px-4 rounded-xl bg-secondary/10 hover:bg-secondary/20 text-on-surface transition-colors">
+<img alt="Google Logo" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfPvY4qtqYR7Pj4cpgud5_Nh_b5i4EDkdCHJzQCRrv3Xesxqn3qr_B3li9KmxQCJmnyi3BLOyWmxkkSmV36CS1QXtGOh-ka5Wt5MqlfifRtJabaXDgxhtepGPssnBpbB7IzWW1xAPsUSrznZvobD-l16JpWb0lvE32XPm58eHaGlsN5pDjOlel0eL0Hc1OmZ8MZw73MBof36KadpkbCWzxkSvMxFslxL9QrEj-SybggpORaTQZfWwbWlDTn4Z2FfCnsoPnaH044k44"/>
+<span class="font-body text-sm font-semibold">Google</span>
+</button>
+<button class="flex items-center justify-center gap-3 py-3 px-4 rounded-xl bg-secondary/10 hover:bg-secondary/20 text-on-surface transition-colors">
+<img alt="GitHub Logo" class="w-5 h-5 invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuColwbzCZ8k04NZwOThR_1HGfsCgLcWKS5guSvOM1D7HfJGKAqmARukDm_0NnpZnG_kQp6rIeSjtaRd3kk9kr9IzugLMwAZy483B863Dr0hd5kbjQkvuDOftmrwSlaSXyYU1zOLjByBznsp07EOJc2Vs4WYcP5qysEPgUQrZ_HXBQk0HCCtmOykmnD7PfQtAev6h54B7Lna5kyI9J8Hbd-1FblL51ubSubE7OGyWIClrQp2IGCmpVDJSBTX7ibfbMkLVCNAiwg6RtQO"/>
+<span class="font-body text-sm font-semibold">GitHub</span>
+</button>
+</div>
+<!-- Contextual Divider -->
+<div class="flex items-center gap-4 mb-8">
+<div class="h-[1px] flex-1 bg-surface-container-high"></div>
+<span class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">Or direct access</span>
+<div class="h-[1px] flex-1 bg-surface-container-high"></div>
+</div>
+<!-- Main Form -->
+<form class="space-y-5">
+<!-- Email Input -->
+<div class="space-y-1.5 group">
+<label class="font-label text-xs text-on-surface-variant uppercase tracking-wide ml-1 group-focus-within:text-secondary transition-colors" for="email">Identifier (Email)</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-secondary transition-colors material-symbols-outlined text-[20px]">alternate_email</span>
+<input class="w-full bg-surface-container-lowest text-on-surface font-body text-sm rounded-xl py-3.5 pl-11 pr-4 border border-outline-variant/15 placeholder:text-outline focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary/50 transition-all" id="email" placeholder="agent@velocity.ai" type="email"/>
+</div>
+</div>
+<!-- Password Input -->
+<div class="space-y-1.5 group">
+<div class="flex justify-between items-end ml-1">
+<label class="font-label text-xs text-on-surface-variant uppercase tracking-wide group-focus-within:text-secondary transition-colors" for="password">Security Key</label>
+<a class="font-label text-[10px] text-primary hover:text-primary-dim transition-colors tracking-wide" href="#">Reset Key?</a>
+</div>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-secondary transition-colors material-symbols-outlined text-[20px]">lock</span>
+<input class="w-full bg-surface-container-lowest text-on-surface font-body text-sm rounded-xl py-3.5 pl-11 pr-11 border border-outline-variant/15 placeholder:text-outline focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary/50 transition-all" id="password" placeholder="••••••••" type="password"/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility_off</span>
+</button>
+</div>
+</div>
+<!-- Action CTA -->
+<button class="w-full mt-8 bg-gradient-to-br from-primary to-primary-container text-on-primary font-headline font-bold text-lg rounded-xl py-4 shadow-[0_4px_24px_-8px_rgba(156,255,147,0.4)] hover:shadow-[0_8px_32px_-8px_rgba(156,255,147,0.6)] active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2" type="button">
+                    Initialize Session
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</form>
+<p class="mt-8 text-center font-body text-xs text-on-surface-variant">
+                By accessing the grid, you agree to the <a class="text-on-surface underline decoration-outline-variant hover:decoration-primary transition-colors" href="#">Terms of Service</a> &amp; <a class="text-on-surface underline decoration-outline-variant hover:decoration-primary transition-colors" href="#">Privacy Protocol</a>.
+            </p>
+</div>
+</div>
+</body></html>

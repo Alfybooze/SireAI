@@ -20,6 +20,11 @@ public interface UserRepository extends JpaRepository<User, Long> {
     // Custom finder methods
     Optional<User> findByUsername(String username);
 
+    Optional<User> findByPhoneNumber(String phoneNumber);
+
+    Optional<User> findByEmail(String email);
+
+    Optional<User> findByTelegramUserId(String telegramUserId);
     List<User> findByTier(String tier);
 
     List<User> findByIsBanned(Boolean isBanned);

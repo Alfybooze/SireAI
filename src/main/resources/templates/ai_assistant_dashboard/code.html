@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Velocity AI - Kinetic Engine</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#9cff93",
+                    "on-error-container": "#ffd2c8",
+                    "tertiary-dim": "#00dbec",
+                    "tertiary-fixed-dim": "#00dbec",
+                    "primary-fixed": "#00fc40",
+                    "on-surface-variant": "#a9abb2",
+                    "surface": "#0b0e13",
+                    "surface-container-high": "#1c2026",
+                    "on-primary-fixed": "#00440a",
+                    "surface-tint": "#9cff93",
+                    "tertiary": "#8af2ff",
+                    "primary-fixed-dim": "#00ec3b",
+                    "error-dim": "#d53d18",
+                    "secondary": "#00e3fd",
+                    "tertiary-container": "#0eeafd",
+                    "on-secondary-fixed": "#003a42",
+                    "on-secondary-container": "#e8fbff",
+                    "outline-variant": "#45484e",
+                    "on-primary-container": "#005a10",
+                    "secondary-dim": "#00d4ec",
+                    "surface-bright": "#282c34",
+                    "outline": "#73757c",
+                    "surface-container-lowest": "#000000",
+                    "error-container": "#b92902",
+                    "on-error": "#450900",
+                    "secondary-fixed": "#26e6ff",
+                    "on-secondary": "#004d57",
+                    "on-primary-fixed-variant": "#006513",
+                    "background": "#0b0e13",
+                    "inverse-on-surface": "#52555b",
+                    "error": "#ff7351",
+                    "surface-container-low": "#101419",
+                    "surface-dim": "#0b0e13",
+                    "on-tertiary-fixed": "#003d42",
+                    "surface-variant": "#22262d",
+                    "on-secondary-fixed-variant": "#005964",
+                    "tertiary-fixed": "#0eeafd",
+                    "secondary-fixed-dim": "#00d7f0",
+                    "surface-container-highest": "#22262d",
+                    "inverse-surface": "#f9f9ff",
+                    "secondary-container": "#006875",
+                    "inverse-primary": "#006f16",
+                    "on-tertiary-container": "#005159",
+                    "primary-dim": "#00ec3b",
+                    "on-background": "#f5f6fe",
+                    "on-tertiary": "#005b63",
+                    "on-surface": "#f5f6fe",
+                    "on-tertiary-fixed-variant": "#005c64",
+                    "primary-container": "#00fc40",
+                    "surface-container": "#161a20",
+                    "on-primary": "#006413"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem",
+                    "2xl": "1rem",
+                    "3xl": "1.5rem"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk", "sans-serif"],
+                    "body": ["Manrope", "sans-serif"],
+                    "label": ["Lexend", "sans-serif"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        /* Kinetic Engine Specific Resets/Utilities */
+        body { background-color: theme('colors.surface'); color: theme('colors.on-surface'); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .glass-panel { background: rgba(40, 44, 52, 0.4); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); }
+    </style>
+</head>
+<body class="font-body antialiased overflow-hidden selection:bg-primary/30 selection:text-primary">
+<!-- TopNavBar (JSON Controlled) -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-6 h-16 bg-[#0b0e13] hidden md:flex">
+<div class="text-2xl font-bold tracking-tighter text-[#9cff93] font-headline">
+            VELOCITY AI
+        </div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-[#a9abb2]">
+<button class="hover:text-[#00e3fd] transition-colors duration-300 active:scale-95 duration-200 flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">analytics</span>
+</button>
+<button class="hover:text-[#00e3fd] transition-colors duration-300 active:scale-95 duration-200 flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">account_circle</span>
+</button>
+</div>
+<div class="flex items-center gap-3 font-label text-sm tracking-widest uppercase">
+<button class="hover:text-[#00e3fd] transition-colors duration-300 active:scale-95 duration-200 text-[#a9abb2]">
+                    Login
+                </button>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-5 py-2 rounded-xl active:scale-95 duration-200 font-bold hover:shadow-[0_0_15px_rgba(156,255,147,0.3)] transition-all">
+                    Sign Up
+                </button>
+</div>
+</div>
+</nav>
+<!-- SideNavBar (JSON Controlled) -->
+<aside class="hidden lg:flex flex-col h-screen fixed left-0 top-0 pt-20 pb-6 w-64 bg-[#101419] z-40 shadow-[4px_0_24px_-12px_rgba(0,227,253,0.15)]">
+<!-- Header area mapped from JSON but styled to Kinetic guidelines -->
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center border border-outline-variant/15 overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="close up portrait of young man with neutral expression dramatic studio lighting against dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdu9hxYkGAfxIHVOFBCIaKi-NKekld-99i50pCTzm0iHaSd0X9hbPaq-N_1brkKWiFN2ktwaysEBmWmMXdkW8XyaCESo7QhBgifRr2pbFS-X8JWXMANI2YVkJ5IeMjWm3aZXIjraPGYkdIY3dutIWeXruqs61ivO6650n2eBg5G5IzFdkNwj5hZalojQxdZmsO0juyz3I2G1Gg1_-14HAbj3Gi52HozHHa-QF0cm3CI_njyU_329XR_wQ5pEb2d3V8ucaxMSqb-dhZ"/>
+</div>
+<div>
+<h3 class="font-headline font-bold text-on-surface text-sm">Velocity Pro</h3>
+<p class="font-label text-[10px] text-primary uppercase tracking-wider">Precision Mode Active</p>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-1 px-3 font-['Manrope'] font-medium">
+<!-- Active Tab: AI Assistant -->
+<a class="bg-[#1c2026] text-[#9cff93] border-r-4 border-[#9cff93] transition-all duration-300 ease-in-out flex items-center gap-4 px-4 py-3 rounded-l-xl" href="#">
+<span class="material-symbols-outlined text-[20px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="text-sm">AI Assistant</span>
+</a>
+<a class="text-[#a9abb2] hover:bg-[#1c2026] hover:text-[#f5f6fe] transition-all duration-300 ease-in-out flex items-center gap-4 px-4 py-3 rounded-l-xl" href="#">
+<span class="material-symbols-outlined text-[20px]">insert_chart</span>
+<span class="text-sm">Analytics</span>
+</a>
+<a class="text-[#a9abb2] hover:bg-[#1c2026] hover:text-[#f5f6fe] transition-all duration-300 ease-in-out flex items-center gap-4 px-4 py-3 rounded-l-xl" href="#">
+<span class="material-symbols-outlined text-[20px]">history</span>
+<span class="text-sm">Chat History</span>
+</a>
+<a class="text-[#a9abb2] hover:bg-[#1c2026] hover:text-[#f5f6fe] transition-all duration-300 ease-in-out flex items-center gap-4 px-4 py-3 rounded-l-xl" href="#">
+<span class="material-symbols-outlined text-[20px]">workspace_premium</span>
+<span class="text-sm">Premium Subscription</span>
+</a>
+<a class="text-[#a9abb2] hover:bg-[#1c2026] hover:text-[#f5f6fe] transition-all duration-300 ease-in-out flex items-center gap-4 px-4 py-3 rounded-l-xl mt-auto" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="text-sm">Settings</span>
+</a>
+</nav>
+<div class="px-4 mt-6 mb-4">
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold py-3 rounded-xl hover:shadow-[0_0_20px_rgba(156,255,147,0.2)] transition-all active:scale-95">
+                Analyze New Slip
+            </button>
+</div>
+<div class="flex flex-col gap-1 px-3 font-['Manrope'] font-medium pt-4 border-t border-white/5">
+<a class="text-[#a9abb2] hover:bg-[#1c2026] hover:text-[#f5f6fe] transition-all duration-300 ease-in-out flex items-center gap-4 px-4 py-2 rounded-l-xl" href="#">
+<span class="material-symbols-outlined text-[18px]">help_outline</span>
+<span class="text-sm">Help</span>
+</a>
+<a class="text-[#a9abb2] hover:bg-[#1c2026] hover:text-[#f5f6fe] transition-all duration-300 ease-in-out flex items-center gap-4 px-4 py-2 rounded-l-xl" href="#">
+<span class="material-symbols-outlined text-[18px]">logout</span>
+<span class="text-sm">Logout</span>
+</a>
+</div>
+</aside>
+<!-- BottomNavBar (JSON Controlled - Mobile) -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-[#101419]/80 backdrop-blur-xl rounded-t-3xl shadow-[0_-8px_32px_rgba(0,0,0,0.5)]">
+<!-- Active Tab: Chat (Intent Match) -->
+<a class="flex flex-col items-center justify-center bg-[#9cff93] text-[#006413] rounded-xl px-4 py-1 scale-90 duration-150 active:bg-[#1c2026]" href="#">
+<span class="material-symbols-outlined text-[24px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+<span class="text-[10px] font-['Lexend'] uppercase tracking-widest mt-1">Chat</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#a9abb2] scale-90 duration-150 hover:text-white active:bg-[#1c2026] px-4 py-1 rounded-xl" href="#">
+<span class="material-symbols-outlined text-[24px]">bar_chart</span>
+<span class="text-[10px] font-['Lexend'] uppercase tracking-widest mt-1">Stats</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#a9abb2] scale-90 duration-150 hover:text-white active:bg-[#1c2026] px-4 py-1 rounded-xl" href="#">
+<span class="material-symbols-outlined text-[24px]">confirmation_number</span>
+<span class="text-[10px] font-['Lexend'] uppercase tracking-widest mt-1">Slips</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#a9abb2] scale-90 duration-150 hover:text-white active:bg-[#1c2026] px-4 py-1 rounded-xl" href="#">
+<span class="material-symbols-outlined text-[24px]">person</span>
+<span class="text-[10px] font-['Lexend'] uppercase tracking-widest mt-1">Profile</span>
+</a>
+</nav>
+<!-- Main Chat Canvas -->
+<main class="flex-1 h-screen flex flex-col relative w-full lg:pl-64 pt-0 md:pt-16 pb-24 md:pb-0 bg-surface">
+<!-- Chat History Scroll Area -->
+<div class="flex-1 overflow-y-auto px-4 md:px-8 py-8 space-y-10 no-scrollbar pb-32">
+<!-- User Message -->
+<div class="flex justify-end w-full">
+<div class="max-w-[85%] md:max-w-[70%] bg-surface-container-high text-on-surface p-5 rounded-3xl rounded-tr-sm shadow-sm border border-outline-variant/10">
+<p class="text-[15px] leading-relaxed font-body">
+                        Analyze the upcoming Arsenal vs Man City game. I need a high-confidence slip with low risk. Give me the breakdown and a SportyBet code to copy.
+                    </p>
+</div>
+</div>
+<!-- AI Response -->
+<div class="flex flex-col w-full max-w-[95%] md:max-w-[85%] gap-4">
+<!-- AI Avatar & Intro -->
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 shrink-0 rounded-full bg-gradient-to-br from-secondary-container to-surface-container-lowest border border-secondary/30 flex items-center justify-center shadow-[0_0_15px_rgba(0,227,253,0.2)]">
+<span class="material-symbols-outlined text-secondary text-xl">bolt</span>
+</div>
+<div class="pt-2">
+<p class="text-on-surface-variant text-[15px] leading-relaxed">
+                            Processing live arena data for <strong class="text-on-surface font-headline tracking-wide">Arsenal vs Manchester City</strong>. The tactical matchup suggests a tight midfield battle, but recent xG trends heavily favor a specific outcome. Here is your customized kinetic analysis and generated slip.
+                        </p>
+</div>
+</div>
+<!-- AI Response UI Cards Container (Indented to align with text) -->
+<div class="pl-14 space-y-6 flex flex-col items-start w-full">
+<!-- UI Card 1: Prediction Card (Dynamic Asymmetry) -->
+<div class="w-full max-w-2xl bg-surface-container-low rounded-3xl p-6 relative overflow-hidden group">
+<!-- Ambient background glow -->
+<div class="absolute -top-20 -right-20 w-64 h-64 bg-secondary/5 rounded-full blur-[80px] pointer-events-none transition-opacity duration-500 group-hover:bg-secondary/10"></div>
+<div class="flex items-center justify-between mb-6 relative z-10">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span>
+<span class="font-label text-xs tracking-widest text-on-surface-variant uppercase">Premier League</span>
+</div>
+<span class="font-label text-xs text-secondary bg-secondary/10 px-3 py-1 rounded-full border border-secondary/20">AI PREDICTION</span>
+</div>
+<!-- Score Matchup -->
+<div class="flex justify-between items-center mb-8 relative z-10">
+<div class="flex flex-col">
+<span class="font-headline text-3xl md:text-5xl font-bold text-on-surface tracking-tighter">ARS</span>
+<span class="font-label text-sm text-on-surface-variant mt-1">42% Win Prob</span>
+</div>
+<div class="flex items-center gap-4 md:gap-8 bg-surface-container-highest px-6 py-3 rounded-2xl border border-outline-variant/15">
+<span class="font-headline text-4xl text-primary font-black">1</span>
+<span class="font-label text-on-surface-variant text-sm">vs</span>
+<span class="font-headline text-4xl text-on-surface font-black">1</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="font-headline text-3xl md:text-5xl font-bold text-on-surface tracking-tighter">MCI</span>
+<span class="font-label text-sm text-on-surface-variant mt-1">31% Win Prob</span>
+</div>
+</div>
+<!-- Key Stats Bento Grid -->
+<div class="grid grid-cols-2 md:grid-cols-3 gap-3 relative z-10">
+<div class="bg-surface rounded-2xl p-4 border border-outline-variant/10">
+<span class="block font-label text-xs text-on-surface-variant mb-1 uppercase">Proj. Possession</span>
+<div class="flex items-end gap-2">
+<span class="font-headline text-xl font-bold text-on-surface">45%</span>
+<span class="font-label text-xs text-secondary mb-[3px]">-</span>
+<span class="font-headline text-xl font-bold text-on-surface">55%</span>
+</div>
+</div>
+<div class="bg-surface rounded-2xl p-4 border border-outline-variant/10">
+<span class="block font-label text-xs text-on-surface-variant mb-1 uppercase">Expected Goals (xG)</span>
+<div class="flex items-end gap-2">
+<span class="font-headline text-xl font-bold text-primary">1.24</span>
+<span class="font-label text-xs text-secondary mb-[3px]">/</span>
+<span class="font-headline text-xl font-bold text-on-surface">1.10</span>
+</div>
+</div>
+<div class="bg-surface rounded-2xl p-4 border border-outline-variant/10 col-span-2 md:col-span-1">
+<span class="block font-label text-xs text-on-surface-variant mb-1 uppercase">Key Metric</span>
+<span class="font-headline text-lg font-bold text-tertiary-container">Under 2.5 Goals</span>
+</div>
+</div>
+</div>
+<!-- Row for Analysis & Booking Code -->
+<div class="w-full max-w-2xl flex flex-col md:flex-row gap-4">
+<!-- UI Card 2: Slip Analysis Card -->
+<div class="flex-1 bg-surface-container-high rounded-3xl p-6 shadow-[0_24px_48px_-12px_rgba(0,227,253,0.05)] border border-outline-variant/10 flex flex-col justify-between">
+<div class="flex justify-between items-start mb-4">
+<h4 class="font-headline font-bold text-on-surface text-lg">Slip Analysis</h4>
+<span class="material-symbols-outlined text-secondary">radar</span>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center pb-3 border-b border-surface-container-lowest">
+<span class="font-label text-sm text-on-surface-variant">Combined Odds</span>
+<span class="font-headline text-xl font-bold text-primary">@ 2.15</span>
+</div>
+<div class="flex justify-between items-center pb-3 border-b border-surface-container-lowest">
+<span class="font-label text-sm text-on-surface-variant">Risk Level</span>
+<div class="flex items-center gap-2">
+<div class="w-16 h-1.5 bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="w-1/3 h-full bg-secondary rounded-full"></div>
+</div>
+<span class="font-label text-xs text-secondary font-bold uppercase">Low</span>
+</div>
+</div>
+<div class="flex justify-between items-center pt-1">
+<span class="font-label text-sm text-on-surface-variant">AI Confidence</span>
+<span class="font-headline text-2xl font-black text-on-surface">88<span class="text-sm text-on-surface-variant">%</span></span>
+</div>
+</div>
+</div>
+<!-- UI Card 3: SportyBet Code Card -->
+<div class="flex-1 glass-panel rounded-3xl p-1 relative overflow-hidden">
+<!-- Gradient Border wrapper technique -->
+<div class="absolute inset-0 bg-gradient-to-br from-primary/30 to-surface-container-lowest z-0"></div>
+<div class="relative z-10 bg-surface-container-highest rounded-[22px] h-full p-6 flex flex-col items-center justify-center text-center shadow-inner">
+<span class="block font-label text-xs text-primary mb-2 uppercase tracking-widest font-bold">SportyBet Code</span>
+<div class="mb-5">
+<span class="font-headline text-4xl font-black text-on-surface tracking-wider">BC49FX2</span>
+</div>
+<button class="w-full flex items-center justify-center gap-2 bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold py-3 rounded-xl hover:shadow-[0_0_20px_rgba(156,255,147,0.2)] transition-all active:scale-95 group">
+<span class="material-symbols-outlined text-[20px] group-active:scale-90 transition-transform">content_copy</span>
+                                    Copy Code
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Spacer to ensure input field doesn't overlap last message -->
+<div class="h-10"></div>
+</div>
+<!-- Chat Input Area (Fixed Bottom) -->
+<div class="absolute bottom-20 md:bottom-0 left-0 lg:left-64 right-0 p-4 md:p-6 bg-gradient-to-t from-surface via-surface to-transparent z-40">
+<div class="max-w-4xl mx-auto relative group">
+<input class="w-full bg-surface-container-lowest text-on-surface font-body rounded-2xl py-4 pl-6 pr-14 focus:outline-none focus:ring-1 focus:ring-secondary/50 border border-outline-variant/20 shadow-[0_-10px_40px_-20px_rgba(0,0,0,0.8)] placeholder:text-on-surface-variant/50 transition-all group-hover:border-outline-variant/40" placeholder="Ask Kinetic Engine to analyze a match..." type="text"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-primary hover:bg-primary/10 transition-colors active:scale-90">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+<p class="text-center mt-3 font-label text-[10px] text-on-surface-variant/40 uppercase tracking-widest">
+                Velocity AI can make mistakes. Verify critical odds.
+            </p>
+</div>
+</main>
+</body></html>
